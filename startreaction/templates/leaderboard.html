@@ -1,0 +1,51 @@
+
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'main/css/table.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/buttons.css' %}">
+<link href="https://cdn.datatables.net/v/dt/dt-1.13.4/r-2.4.1/datatables.min.css" rel="stylesheet"/>
+ 
+     {% endblock %}
+{% block title  %} Испытай себя {% endblock  %}
+
+{% block content  %}
+<div class="box"   style="width: 14em; margin: 1em 0;" >
+    <div class="btn"><a onClick="location.href='{% url 'home' %}'">НАЗАД</a></div>
+</div>
+{% if position %}
+<div class="player_info" style="font-size: 2em;">
+    Ваша позиция: {{ position }}
+</div>
+{% else %}
+<div class="player_info" style="font-size: 2em;">
+    Сыграйте хотя бы 1 игру!
+</div>
+{% endif %}
+<div style="width: 80%; color: white; border-radius: 20px; padding: 1.5em; background-color: #000000d9; border: 0.7px solid #10ff00; box-sizing: content-box;">
+    <table class="display cell-border" id="leaderboard" style="width: 100%;font-size: 4vh;color: white; box-sizing: inherit;">
+        <thead>
+            <th style="width: 100px;">Место</th>
+            <th>Имя</th>
+            <th style="width: 100px;">Время</th>
+            <th style="text-align: center; width: 100px;">Дата</th>
+        </thead>
+        <tbody>
+            {% for name,data in best_times %}
+            <tr>
+                <td style="text-align: right;">{{ forloop.counter }}</td>
+                <td>{{ name }}</td>
+                <td>{{ data.time }}</td>
+                <td style="text-align: center;">{{ data.date }}</td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script lang="javascript" src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/r-2.4.1/datatables.min.js"></script>
+<script src="{% static 'main/js/leaderboard.js' %}"></script>
+{% endblock  %}

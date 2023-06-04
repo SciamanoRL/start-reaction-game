@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+input {
+  height: 3em;
+  color: white;
+  background-color: #a8a8a842;
+  border: 0.12em solid white;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 1em;
+}
+.player_info {
+  color: white;
+  font-size: 1.3em;
+  text-align: center;
+}
+#before_start {
+  width: 80%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 66px;
+}
+
+.light {
+  border-radius: 100%;
+  background: #222;
+  margin: 10px;
+}
+
+.light::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.light-col.on .light:nth-child(1n+3) {
+  background: red url("../png/logo.png") center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
+.all-lights {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+}
+
+.light-col {
+  background: black;
+  border-radius: 8px;
+  margin: 0 2px;
+  position: relative;
+  flex: 1;
+}
+
+#timer {
+  color: white;
+  font-size: 12vw;
+  position: relative;
+}
+#game {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 2.5vh;
+  padding: 9px 0px;
+  
+}

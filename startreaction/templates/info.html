@@ -1,0 +1,47 @@
+
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'main/css/buttons.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/info.css' %}">
+     {% endblock %}
+{% block title  %} Испытай себя {% endblock  %}
+
+{% block content  %}
+{% csrf_token %}
+<div class="bg-info">
+     <div class="box" onClick="location.href='{% url 'home' %}'" style="width: 20em; margin: 2em 0;" >
+          <div class="btn"><a>В МЕНЮ</a></div>
+      </div>
+     <div class="player_info">
+          Привет, настоящий гонщик!
+         Мы рады, что ты решил попробовать себя в роли пилота Формулы 1 на старте.
+         И так, приступим!
+         Несколько простых правил игры:
+         <div class="rules">1. Введи свое имя или ник.</div>
+         <div class="rules">2. Введи свой реальный номер телефона, на который можно будет дозвонится. Борьба будет за призы, поэтому в случае, если выиграешь именно ты, мы обязательно позвоним тебе.</div>
+         <div class="rules">3. Нажми войти в игру и получи 10 попыток показать лучшее время на старте.</div>
+         <div class="rules"> 4. Нажми начать играть и ты увидишь светофор. Как только светофор погаснет, сразу жми в любое место, чтобы зафиксировать твое время реакции на старте. Но не спеши, так как фальстарт отнимет у тебя попытку. Светофор гаснет всегда в разное время.</div>
+         <div class="rules">5. Затем нажми еще раз в любое место, чтобы вернуться и попробовать еще.</div>
+         <div class="rules">6. Ты можешь всегда посмотреть таблицу лидеров, чтобы понять сколько тебе не хватает или посмотреть кто тебя догоняет.</div>
+         <div class="rules">7. Как только попытки закончатся жди окончание недели, чтобы узнать результаты.</div>
+         Призы:
+         За 1-е место ты получишь сертификат на 3000 рублей в наш картодром
+         За 2-е место ты получишь сертификат на 2000 рублей в наш картодром
+         За 3-е место ты получишь сертификат на 1000 рублей в наш картодром
+     </div>
+
+
+    <div class="box" id="top_button" onClick="topFunction()" style="width: 20em; margin: 2em 0;" >
+                <div class="btn"><a>Наверх</a></div>
+            </div>
+            
+</div>
+
+<script>function topFunction() {
+     document.body.scrollTop = 0; // Для Safari
+     document.documentElement.scrollTop = 0; // Для Chrome, Firefox, IE и Opera
+   }</script>
+
+{% endblock  %}

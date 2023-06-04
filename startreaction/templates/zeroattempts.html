@@ -1,0 +1,33 @@
+
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/buttons.css' %}">
+     {% endblock %}
+{% block title  %} Испытай себя {% endblock  %}
+
+{% block content  %}
+{% csrf_token %}
+<div id="before_start">
+     <div class="player_info">
+          Привет, {{ player.player_name }}
+     </div>
+     <div class="player_info">
+          К сожалению у вас закончились попытки!
+     </div>
+    <div class="player_info">
+          Дождитесь подведения результатов следите за лидерами!
+     </div>
+    <div class="container" onClick="location.href='{% url 'leaders' %}'" style="width: 20em; margin-top: 2em;" >
+                <div class="btn"><a>ТАБЛИЦА ЛИДЕРОВ</a></div>
+            </div>
+            <div class="container" onClick="location.href='{% url 'info' %}'"  style="width: 20em; margin-top: 2em;" >
+              <div class="btn"><a>ПРАВИЛА</a></div>
+          </div>
+</div>
+
+
+
+{% endblock  %}

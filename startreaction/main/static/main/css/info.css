@@ -1,0 +1,29 @@
+.rules {
+  text-align: left;
+  margin: 2vh 0vh;
+}
+
+.bg-info {
+    height: 100%;
+    padding: 1em 20em;
+    background-color: #0000009e;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+#top_button {
+display: none;
+}
+@media screen and (max-width: 900px) {
+  body {
+    height: auto;
+
+  }
+  .bg-info {
+  padding: 1em;
+  }
+  #top_button {
+    display: flex;
+}
+}

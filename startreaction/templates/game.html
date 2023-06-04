@@ -1,0 +1,81 @@
+
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'main/css/buttons.css' %}">
+     {% endblock %}
+{% block title  %} Испытай себя {% endblock  %}
+
+{% block content  %}
+{% csrf_token %}
+<div id="before_start">
+     <div class="player_info">
+          Привет, {{ player.player_name }}
+     </div>
+     <div class="player_info">
+          У тебя осталось: {{ player.attempts }} попыток
+     </div>
+     {% if time.time %}
+     <div class="player_info">
+      Лучшее время: {{ time.time }} 
+      </div>
+     {% endif %}
+     
+              <div class="box"  style="width: 20em; margin-top: 2em;" >
+                  <div class="btn"><a id="gamestartbutton">НАЧАТЬ</a></div>
+              </div>
+              <div class="box"  style="width: 20em; margin-top: 2em;" >
+                <div class="btn"><a onClick="location.href='{% url 'leaders' %}'">ТАБЛИЦА ЛИДЕРОВ</a></div>
+            </div>
+            <div class="box"   style="width: 20em; margin-top: 2em;" >
+              <div class="btn"><a onClick="location.href='{% url 'info' %}'">ПРАВИЛА</a></div>
+          </div>
+</div>
+
+<div id="game">
+  <div class="all-lights">
+    <div class="back-board"></div>
+    <div class="light-col">
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+    </div>
+    <div class="light-col">
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+    </div>
+    <div class="light-col">
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+    </div>
+    <div class="light-col">
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+    </div>
+    <div class="light-col">
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+    </div>
+  </div>
+  <div id="timer">00.000</div>
+     
+     <!-- <button class="button-58">СТАРТ!</button> -->
+</div>
+
+ <script lang="javascript" src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/dayjs.min.js" integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/locale/ru.min.js" integrity="sha512-2m7nnJFJUUe+phaiXwbL+DDnvUvb3EVtiD5KIwkTjJmNOnzdo1PTcu6bS5YyIh637b9ckqASAQzpWNiIz0FaVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.7/plugin/duration.min.js" integrity="sha512-QxVJ3lAILV0RSq3wPNV5CFNyyywxd5QfA9jfGfzVViwpL/eWSi5dR1nZMc02c+QE4xz2L1eQvx/fn18RrUq9lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="{% static 'main/js/game.js' %}"></script>
+{% endblock  %}

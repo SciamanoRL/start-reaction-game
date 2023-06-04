@@ -1,0 +1,28 @@
+
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{% static 'main/css/buttons.css' %}">
+     {% endblock %}
+{% block title  %} Испытай себя {% endblock  %}
+
+{% block content  %}
+{% csrf_token %}
+<div class="login-box">
+    Введите имя
+    <input type="text" placeholder="Введите имя" id="player_name" required>
+</div>
+<div class="login-box">
+    Введите телефон
+    <input type="text" placeholder="Ваш телефон" id="player_phone" maxlength="18" required>
+</div>
+        <div class="box"  style="width: 20em; margin-top: 2em;" >
+            <div class="btn" id="gamestartbutton"><a>НАЧАТЬ ИГРУ</a></div>
+        </div>
+        <div class="box"  style="width: 20em; margin-top: 2em;"  onClick="location.href='{% url 'info' %}'">
+            <div class="btn" ><a>ПРАВИЛА</a></div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{% static 'main/js/index.js' %}"></script> 
+{% endblock  %}
